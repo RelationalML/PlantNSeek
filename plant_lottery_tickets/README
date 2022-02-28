@@ -1,0 +1,16 @@
+This is an implementation of the ticket planting algorithm, currently supporting the generation of tickets and data for Helix, Circle, and ReLU.
+This source code is part of "Plant ’n’ Seek: Can You Find the Winning Ticket?: by <Anonymous Authors>.
+This code is shared under the Apache 2.0 License.
+
+This code package is split into three parts:
+
+
+datagen.py	As the name suggests, this is a file for generation of data according to the problem settings. We provide implementations to generate data and return it as pytorch Dataset (immediately usable for Dataloaders) in the functions "gen_data_circle_syn" gen_data_helix_syn" "gen_data_relu_syn" at the bottom of the file. For example usage see the respective implementations in ../Synaptic-Flow-Extended/ and ../planted_tickets_src/
+
+
+tickets.py	This file provides functions to generate the described tickets computing ReLU, Circle classification, and Helix coordinates, by the corresponding functions "lottery_relu", "lottery_sphere", and "lottery_helix_wide". "lottery_relu(depth, task)" takes as arguments the depth of the generated network and a task which is either "reg" or "class" corresponding to the ReLU regression or classification task. In our study, we restrict ourselves to regression. "lottery_sphere(depth, class_bound, nknots, task)" takes the depth, the (square of) radii of the circles -- i.e. class boundaries, a constant nknots which we do not go into detail here, we recommend to set it to 10 for moderately sized networks, and the task which is either "reg" or "class", we here restrict ourselves to classification. Finally. "lottery_helix_wide(f1, f2, f3, depth, nknots)" takes functions computing the x,y,z coordinates, an implementation of what we used in the manuscript is given in this same file as "fun_ex1", "fun_ex2", and "fun_ex3". Furthermore, it again takes the depth of the target network, and additionally the number of knots used for the piecewise linear approximation, which we set to 30 in our experiments. Example implementations on how to use these functions is given in ../Synaptic-Flow-Extended/Models/circler.py  and  ../planted_tickets_src/ticket_models.py
+
+
+plant.py	This file provides functions to hide the generated tickets in He initialized networks. Using "init_He_scaled(width)", where width is a list of layer widths, it initializes a network of desired size by He initialization and returns the corresponding weight matrices and bias vectors. By feeding the constructed target, respectively He initialized weights and biases to "plant_target(weightTarget, biasTarget, weightInit, biasInit)" we get the final network with hidden tickets. More concrete example usages can be found in ../Synaptic-Flow-Extended/Models/circler.py  and  ../planted_tickets_src/ticket_models.py
+
+

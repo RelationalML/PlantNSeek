@@ -1,0 +1,11 @@
+This is a code package as part of "Plant ’n’ Seek: Can You Find the Winning Ticket?" by Jonas Fischer and Rebekka Burkholz.
+
+
+The code package is split into three parts, a generator of tickets, networks and corresponding data found in plant_lottery_tickets/, an implementation of edgepopup found in planted_tickets_src/, and an extension of the Synflow package in Synaptic-Flow-Extended/. More information about each individual part of the codebase along with licenses can be found in the respective folders. Each folder contains a README hinting at the general usage of the code.
+
+
+All code is written in Python and designed for usage with PyTorch. Suggested dependencies can be found in the requirements file and installed via
+
+pip3 install -r requirements.txt
+
+however, as always there might be dependency issues depending on the distribution and pre-installed packages.
