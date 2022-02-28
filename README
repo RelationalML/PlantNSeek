@@ -1,7 +1,7 @@
 This is a code package as part of "Plant ’n’ Seek: Can You Find the Winning Ticket?" by Jonas Fischer and Rebekka Burkholz.
 
 
-The code package is split into three parts, a generator of tickets, networks and corresponding data found in plant_lottery_tickets/, an implementation of edgepopup found in planted_tickets_src/, and an extension of the Synflow package in Synaptic-Flow-Extended/. More information about each individual part of the codebase along with licenses can be found in the respective folders. Each folder contains a README hinting at the general usage of the code.
+The code package is split into four parts, a generator of benchmark tickets, networks and corresponding data found in plant_lottery_tickets/, an implementation of edgepopup applicable to benchmark data in edgepopup_benchmarkdata/, an implementation of edgepopup for the VGG16 planting experiment in edgepopup_vgg/,and an extension of the Synflow package in Synaptic-Flow-Extended/. More information about each individual part of the codebase along with licenses can be found in the respective folders. Each folder contains a README hinting at the general usage of the code.
 
 
 All code is written in Python and designed for usage with PyTorch. Suggested dependencies can be found in the requirements file and installed via
